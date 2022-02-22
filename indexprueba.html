@@ -51,16 +51,21 @@
     </nav>
 
 
-    <div class="progress" width="75%">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
-            aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-success"
+            style="width:0%">
+        </div>
     </div>
 
 
     <header class="container-fluid">
 
+
         <button type="button" class="btn btn-success btnplay col-2 my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Jugar
+        </button>
+        <button type="button" class="btn btn-success btnrestart col-2 my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Reintentar
         </button>
            
             <div class="col-10 informacion" id="informacion">Barra de informacion</div>
@@ -122,7 +127,7 @@
 
             <main class="col-8">
                 <div class="jefe">
-                    <div class="row">
+                   <div class="row">                   
                         <div class="contenedor container-fluid">
                             <div class="row">
                                 <div class="cartas col-6 col-md-4 col-lg-3 mx-2" id="carta1"></div>
@@ -165,7 +170,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Selecciona Dificultad</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -173,15 +178,15 @@
               <input id="usuarioForm" type="text" placeholder="Escribe tu nombre...">
               <label for="dificultad">Elija usted la dificultad para este juego:</label><br>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <input class="form-check-input" type="radio" name="dificultad" id="inlineRadio1" value="facil">
                 <label class="form-check-label" for="inlineRadio1">Facil</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <input class="form-check-input" type="radio" name="dificultad" id="inlineRadio2" value="normal">
                 <label class="form-check-label" for="inlineRadio1">Normal</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <input class="form-check-input" type="radio" name="dificultad" id="inlineRadio3" value="dificil">
                 <label class="form-check-label" for="inlineRadio1">Dificil</label>
               </div>
             </div>

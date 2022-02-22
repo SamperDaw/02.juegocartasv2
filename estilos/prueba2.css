@@ -39,7 +39,9 @@ body {
     
   }
   
-  
+  .btnrestart{
+    display: none;
+  }
   
   table,
   th,
