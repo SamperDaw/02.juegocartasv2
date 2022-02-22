@@ -23,20 +23,29 @@ var xmlhttp = new XMLHttpRequest();
 
 function cargarIdiomaEN() {
     $.getJSON("idiomas/idiomas.json", function (respuesta){
-        respuesta["lang"]["EN"]
+      const idioma =  respuesta["lang"]["EN"];
+      $("#titulo").html(idioma["TITLE"]);
+      $("#puntuacion").html(idioma["SCORE"]);
+      $("#fallosml").html(idioma["ERRORS"]);
+      $("#jugadorxml").html(idioma["TOPPLAYER"]);
+      $("#erroresjugador").html(idioma["TOPERROS"]);
+      $("#idiomas").html(idioma["LANGUAJE"]);
+      $("#informacion").html(idioma["INFO"]);
     })
 }
 function cargarIdiomaES() {
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var myArr = JSON.parse(this.responseText);
-            cambiarIdioma(myArr);
-        }
-    };
-    xmlhttp.open("GET", "idiomas/idiomas.json", true);
-    xmlhttp.send();
-    localStorage.setItem('lenguaje', 'esp');
-}
+    $.getJSON("idiomas/idiomas.json", function (respuesta){
+        const idioma =  respuesta["lang"]["ES"];
+        $("#titulo").html(idioma["TITLE"]);
+        $("#puntuacion").html(idioma["SCORE"]);
+        $("#fallosml").html(idioma["ERRORS"]);
+        $("#jugadorxml").html(idioma["TOPPLAYER"]);
+        $("#erroresjugador").html(idioma["TOPERROS"]);
+        $("#idiomas").html(idioma["LANGUAJE"]);
+        $("#informacion").html(idioma["INFO"]);
+      })
+  }
+
 
 function cambiarIdioma(arr) {
     let idioma;
@@ -45,13 +54,7 @@ function cambiarIdioma(arr) {
     } else {
         idioma = arr["lang"]["ES"];
     }
-    $("#titulo").html(idioma["TITLE"]);
-    $("#puntuacion").html(idioma["SCORE"]);
-    $("#fallosml").html(idioma["ERRORS"]);
-    $("#jugadorxml").html(idioma["TOPPLAYER"]);
-    $("#erroresjugador").html(idioma["TOPERROS"]);
-    $("#idiomas").html(idioma["LANGUAJE"]);
-    $("#informacion").html(idioma["INFO"]);
+    
 
 }
 $("#lesgo").click(comenzar);
