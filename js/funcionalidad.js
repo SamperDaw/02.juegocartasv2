@@ -18,13 +18,13 @@ let errores = 0;
 $('#btnESP').click(cargarIdiomaES);
 $('#btnENG').click(cargarIdiomaEN);
 
-var xmlhttp = new XMLHttpRequest();
 
 
 function cargarIdiomaEN() {
     $.getJSON("idiomas/idiomas.json", function (respuesta){
       const idioma =  respuesta["lang"]["EN"];
-      $("#titulo").html(idioma["TITLE"]);
+      $("#juegoidioma").html(idioma["TITLE"]);
+      $("#descidioma").html(idioma["DESCRIPCION"]);
       $("#puntuacion").html(idioma["SCORE"]);
       $("#fallosml").html(idioma["ERRORS"]);
       $("#jugadorxml").html(idioma["TOPPLAYER"]);
@@ -36,7 +36,8 @@ function cargarIdiomaEN() {
 function cargarIdiomaES() {
     $.getJSON("idiomas/idiomas.json", function (respuesta){
         const idioma =  respuesta["lang"]["ES"];
-        $("#titulo").html(idioma["TITLE"]);
+        $("#juegoidioma").html(idioma["TITLE"]);
+        $("#descidioma").html(idioma["DESCRIPCION"]);
         $("#puntuacion").html(idioma["SCORE"]);
         $("#fallosml").html(idioma["ERRORS"]);
         $("#jugadorxml").html(idioma["TOPPLAYER"]);
@@ -115,23 +116,25 @@ function comparar(e) {
 
         sel1 = e.target;
         $(sel1).css("background-image", $(sel1).data("imagen"))
-
+        $(".audio2")[0].play();
+        
     } else if (sel1 == e.target) {
 
     } else {
 
         sel2 = e.target;
+        $(".audio2")[0].play();
         $(sel2).css("background-image", $(sel2).data("imagen"))
         if ($(sel1).data("imagen") == $(sel2).data("imagen")) {
             $('#informacion').html("son pareja");
-
+            $(".audio4")[0].play();
 
 
             sel1.classList.add("sombras");
             sel2.classList.add("sombras");
             sel1 = '';
             sel2 = '';
-            puntuacion++;
+            puntuacion++;   
             $(".progress-bar").animate({
 
                 width: arrPerc[puntuacion]
@@ -159,7 +162,7 @@ function comparar(e) {
             setTimeout(() => {
                 $(sel1).css("background-image", "url(../imagenes/dorso2.png)");
                 $(sel2).css("background-image", "url(../imagenes/dorso2.png)");
-
+                $(".audio3")[0].play();
                 sel1 = '';
                 sel2 = '';
                 let info = document.getElementById("informacion");

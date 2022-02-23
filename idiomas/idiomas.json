@@ -1,8 +1,9 @@
 {
     "lang": {
         "ES":{
-            "TITLE":"Juego de cartas",
+            "TITLE":"Juego",
             "SCORE":"Puntuacion",
+            "DESCRIPCION":"Descripcion",
             "ERRORS":"Errores",
             "TOPPLAYER":"El maquina",
             "TOPERROS":"Errores del maquina",
@@ -12,8 +13,9 @@
             
         },
         "EN":{
-            "TITLE":"Card Game",
+            "TITLE":"Game",
             "SCORE":"Score",
+            "DESCRIPCION":"Description",
             "ERRORS":"Errors",
             "TOPPLAYER":"The machine",
             "TOPERROS":"Machine errors",
