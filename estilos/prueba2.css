@@ -25,6 +25,15 @@ body {
     
   }
   
+  .borderojo{
+    border: 5px solid red;
+    height: 171px;
+  }
+
+  .bordeverde{
+    border: 5px solid green;
+    height: 171px;
+  }
   
   
   .imagenLogo {

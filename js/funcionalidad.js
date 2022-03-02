@@ -9,6 +9,15 @@ $(document).ready(function () {
     })
 });
 
+function randomcard(){
+    arrSrc.sort(function () { return Math.random() - 0.5 });
+    let contadorBg = 0;
+    $('.cartas').each(function () {
+        $(this).data("imagen", arrSrc[contadorBg])
+        contadorBg++;
+    })
+}
+
 let sel1 = '';
 let sel2 = '';
 let puntuacion = 0;
@@ -102,11 +111,14 @@ $('.cartas').click(comparar);
 
 function comparar(e) {
     if ($(e.target).data("imagen") == "url(imagenes/bombastic.jpg)") {
-
         setTimeout(() => {
             $(".cartas").css("background-image", "url(imagenes/dorso2.png)");
             $(this).css("background-image", "url(imagenes/dorso2.png)");
+            $(".cartas").removeClass("borderojo");
+            $(".cartas").removeClass("bordeverde");
             $(".audio")[0].play();
+            randomcard()
+             
         }, 500);
 
     }
@@ -117,13 +129,17 @@ function comparar(e) {
         sel1 = e.target;
         $(sel1).css("background-image", $(sel1).data("imagen"))
         $(".audio2")[0].play();
-        
+
+        $(sel1).fadeOut()
+        $(sel1).fadeIn(20)
     } else if (sel1 == e.target) {
 
     } else {
 
         sel2 = e.target;
         $(".audio2")[0].play();
+        $(sel2).fadeOut()
+        $(sel2).fadeIn(20)
         $(sel2).css("background-image", $(sel2).data("imagen"))
         if ($(sel1).data("imagen") == $(sel2).data("imagen")) {
             $('#informacion').html("son pareja");
@@ -132,6 +148,8 @@ function comparar(e) {
 
             sel1.classList.add("sombras");
             sel2.classList.add("sombras");
+            sel1.classList.add("bordeverde");
+            sel2.classList.add("bordeverde");
             sel1 = '';
             sel2 = '';
             puntuacion++;   
@@ -163,10 +181,13 @@ function comparar(e) {
                 $(sel1).css("background-image", "url(../imagenes/dorso2.png)");
                 $(sel2).css("background-image", "url(../imagenes/dorso2.png)");
                 $(".audio3")[0].play();
+                sel1.classList.add("borderojo");
+                sel2.classList.add("borderojo");
                 sel1 = '';
                 sel2 = '';
                 let info = document.getElementById("informacion");
                 errores++;
+               
                 $('#fallos').val(errores);
             }, 500);
 
